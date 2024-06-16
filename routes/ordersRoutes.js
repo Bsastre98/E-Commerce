@@ -5,7 +5,7 @@ const ordersModel = require('../models/orders');
 
 
 //Create a new order
-router.post('/create', (req, res) => {
+router.post('/create-order', (req, res) => {
     const { userID } = req.body;
     ordersModel.createOrder(userID, (err, results) => {
         if (err) return res.status(500).json({ error: 'Database error' });
@@ -31,7 +31,7 @@ router.post('/add-product/:orderId', (req, res) => {
 
 
 // Route to update order status
-router.put('/update/:orderId', (req, res) => {
+router.put('/updateOrderStatus/:orderId', (req, res) => {
     const { status } = req.body;
     const orderId = req.params.orderId;
     ordersModel.updateOrderStatus(orderId, status, (err) => {

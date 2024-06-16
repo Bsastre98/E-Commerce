@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
 
-//API endpoint to create a new product
-router.post('/api/products', (req, res) => {
+//endpoint to create a new product
+router.post('/api/createProduct', (req, res) => {
     Product.createProduct(req.body, (err, results) => {
         if (err) {
             return res.status(500).json({ error: 'An error occurred while inserting the product.' });
